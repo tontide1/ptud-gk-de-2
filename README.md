@@ -45,7 +45,7 @@ cd ptud-gk-de-2
 ```
 2. Tạo virtual environment:
 
-- Bạn nên tạo môi trường ảo với python 3.10.11 để phù hợp với phiên bản mà tôi đã sử dụng khi xây dựng dự án này
+- Bạn nên tạo môi trường ảo với ***python 3.10.11*** để phù hợp với phiên bản mà tôi đã sử dụng khi xây dựng dự án này
 ```bash
 python -m venv venv
 venv\Scripts\activate.ps1
