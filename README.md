@@ -51,11 +51,6 @@ cd ptud-gk-de-2
 conda create -n gk_ptud python=3.10.11
 conda activate gk_ptud
 ```
-
-```bash
-python -m venv venv
-venv\Scripts\activate.ps1
-```
 3. Cài đặt thư viện:
 ```bash
 pip install -r requirements.txt
