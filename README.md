@@ -56,4 +56,8 @@ winget install -e --id Anaconda.Miniconda3
 ```bash
 install.bat
 ```
+3. Truy cập vào ứng dụng:
+```bash
+http://127.0.0.1:5000
+```
 ## Tài khoản Admin mặc định : admin - admin123
