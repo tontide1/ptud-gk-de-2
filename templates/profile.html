@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title text-center">Profile</h3>
+                <div class="text-center mb-4">
+                    {% if current_user.avatar %}
+                        <img src="{{ url_for('static', filename=current_user.avatar) }}" 
+                             alt="Current Avatar" class="rounded-circle" style="width: 150px; height: 150px;">
+                    {% else %}
+                        <div class="alert alert-info">No avatar uploaded</div>
+                    {% endif %}
+                </div>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="avatar" class="form-label">Change Avatar</label>
+                        <input type="file" class="form-control" id="avatar" name="avatar" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Update Avatar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

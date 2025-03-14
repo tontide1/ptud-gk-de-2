@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <!-- Tasks grouped by categories -->
+        {% for category, tasks in categorized_tasks.items() %}
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">{{ category.name }}</h4>
+            </div>
+            <div class="card-body">
+                {% if tasks %}
+                    <div class="row">
+                    {% for task in tasks %}
+                        <div class="col-md-6 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ task.title }}</h5>
+                                    <p class="card-text">{{ task.description }}</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <small class="text-muted">Created: {{ task.created.strftime('%Y-%m-%d %H:%M') }}</small>
+                                        {% if task.finished %}
+                                            <small class="text-success">Completed: {{ task.finished.strftime('%Y-%m-%d %H:%M') }}</small>
+                                        {% endif %}
+                                    </div>
+                                    <div class="badge bg-{{ 'success' if task.status == 'completed' 
+                                                         else 'warning' if task.status == 'in_progress' 
+                                                         else 'secondary' }}">
+                                        {{ task.status }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                {% else %}
+                    <p class="text-muted">No tasks in this category</p>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+
+        <!-- Uncategorized Tasks -->
+        {% if uncategorized_tasks %}
+        <div class="card mb-4">
+            <div class="card-header bg-secondary text-white">
+                <h4 class="mb-0">Uncategorized Tasks</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                {% for task in uncategorized_tasks %}
+                    <div class="col-md-6 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ task.title }}</h5>
+                                <p class="card-text">{{ task.description }}</p>
+                                <div class="badge bg-{{ 'success' if task.status == 'completed' 
+                                                     else 'warning' if task.status == 'in_progress' 
+                                                     else 'secondary' }}">
+                                    {{ task.status }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
