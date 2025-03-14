@@ -45,28 +45,15 @@ cd ptud-gk-de-2
 ```
 2. Tạo virtual environment:
 
-- Bạn nên tạo môi trường ảo với ***python 3.10.11*** để phù hợp với phiên bản mà tôi đã sử dụng khi xây dựng dự án này
+- Dự án này tôi sử dụng miniconda để tạo biến môi trường ảo.
+
+- Nếu bạn chưa có miniconda, hãy mở Windows Powershell chạy lệnh sau để cài đặt:
+```bash
+winget install -e --id Anaconda.Miniconda3
+```
+- Sau khi đã cài đặt miniconda, bạn chỉ cần mở $CMD$ chạy script $install.bat$ để tạo môi trường ảo và cài đặt các thư viện cần thiết để chạy ứng dụng:
 
 ```bash
-conda create -n gk_ptud python=3.10.11
-conda activate gk_ptud
+install.bat
 ```
-3. Cài đặt thư viện:
-```bash
-pip install -r requirements.txt
-```
-4. Chạy ứng dụng:
-```bash
-python app.py
-```
-5. Tạo tài khoản admin:
-   - Lưu ý: nên chạy ứng dụng trước để đảm bảo database được khởi tạo. Sau đó hãy tạo tài khoản admin sau
-```bash
-python create_admin.py
-```
-6. Truy cập ứng dụng:
-```bash
-localhost:5000
-```
-
-### Tài khoản Admin mặc định : admin - admin123
+## Tài khoản Admin mặc định : admin - admin123
