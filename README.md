@@ -38,17 +38,17 @@ Xây dựng một ứng dụng quản lý công việc (task), tình trạng ho�
 
 ## Installation
 
-1. Clone the repository:
+1. Clone dự án:
 ```bash
-git clone https://github.com/yourusername/task-management.git
-cd task-management
+git clone https://github.com/tontide1/ptud-gk-de-2.git
+cd ptud-gk-de-2
 ```
-2. Create a virtual environment:
+2. Tạo virtual environment:
 ```bash
 python -m venv venv
 venv\Scripts\activate.ps1
 ```
-3. Install dependencies:
+3. Cài đặt thư viện:
 ```bash
 pip install -r requirements.txt
 ```
@@ -57,6 +57,7 @@ pip install -r requirements.txt
 python app.py
 ```
 5. Tạo tài khoản admin:
+   - Lưu ý: nên chạy ứng dụng trước để đảm bảo database được khởi tạo. Sau đó hãy tạo tài khoản admin sau
 ```bash
 python create_admin.py
 ```
