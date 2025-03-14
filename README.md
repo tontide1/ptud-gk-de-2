@@ -40,8 +40,8 @@ Xây dựng một ứng dụng quản lý công việc (task), tình trạng ho�
 
 1. Clone the repository:
 ```bash
-[git clone https://github.com/yourusername/task-management.git](https://github.com/tontide1/ptud-gk-de-2.git)
-cd task-management
+git clone https://github.com/tontide1/ptud-gk-de-2.git
+cd ptud-gk-de-2
 ```
 2. Create a virtual environment:
 ```bash
