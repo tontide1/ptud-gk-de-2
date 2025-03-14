@@ -32,7 +32,6 @@ def load_user(user_id):
 def home():
     return redirect(url_for('login'))
 
-# Update the index route
 @app.route('/dashboard')
 @login_required
 def index():
@@ -40,7 +39,6 @@ def index():
     categories = Category.query.all()
     return render_template('index.html', tasks=tasks, categories=categories)
 
-# Update login route to redirect to dashboard after successful login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -61,7 +59,6 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        # Check if username or email already exists
         if User.query.filter_by(username=request.form['username']).first():
             flash('Username already exists', 'danger')
             return render_template('register.html')
@@ -101,16 +98,13 @@ def manage_categories():
             db.session.commit()
             flash('Category added successfully!')
     
-    # Get all categories and their associated tasks for the current user
     categories = Category.query.all()
     user_tasks = Task.query.filter_by(user_id=current_user.id).all()
     
-    # Create a dictionary of tasks grouped by category
     categorized_tasks = {}
     for category in categories:
         categorized_tasks[category] = [task for task in user_tasks if task.category_id == category.id]
     
-    # Get tasks with no category
     uncategorized_tasks = [task for task in user_tasks if task.category_id is None]
     
     return render_template('categories.html', 
@@ -121,7 +115,6 @@ def manage_categories():
 @app.route('/task/add', methods=['POST'])
 @login_required
 def add_task():
-    # Get or create category
     category_name = request.form.get('category_name')
     if category_name:
         category = Category.query.filter_by(name=category_name).first()
